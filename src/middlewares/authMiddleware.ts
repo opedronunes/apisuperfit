@@ -6,10 +6,10 @@ import { PessoaService } from "../services/pessoaService";
 type JwtPayload = {
     cpf: string
 }
-interface CustomRequest extends Request {
-    //eslint-disable-next-line @typescript-eslint/no-explicit-any
-    user?: Record<string, any>;
-}
+// interface CustomRequest extends Request {
+//     //eslint-disable-next-line @typescript-eslint/no-explicit-any
+//     user?: Record<string, any>;
+// }
 
 const pessoaService = new PessoaService();
 

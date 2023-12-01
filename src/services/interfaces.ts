@@ -30,8 +30,19 @@ export interface InterfaceCrudHrAula<DTO>{
 
 export interface InterfaceCrudMatricula<DTO>{
     getAll(): Promise<DTO[]>;
-    // matriculaId(id: string): Promise<DTO>;
+    matriculaId(id: string): Promise<DTO>;
+    getAlunoId(aluno_id:string): Promise<DTO>
     createMatricula(payload: DTO): Promise<DTO>;
-    // updateMatricula(id: string, payload: DTO): Promise<DTO>;
+    updateMatricula(id: string, payload: DTO): Promise<DTO>;
+    // deleteMatricula(id: string): Promise<DTO>;
+}
+
+export interface InterfaceCrudPagamento<DTO>{
+    getAllPagamentos(): Promise<DTO[]>;
+    createPagamento(payload: DTO): Promise<DTO>;
+    verificaMatricula(matricula_id: string): Promise<DTO>;
+    relatorio(dataInicial: string, dataFinal: string): Promise<DTO>;
+    // pagamentoId(id: string): Promise<DTO>;
+    // updatePagamento(id: string, payload: DTO): Promise<DTO>;
     // deleteMatricula(id: string): Promise<DTO>;
 }

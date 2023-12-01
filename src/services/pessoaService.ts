@@ -18,7 +18,7 @@ export class PessoaService implements InterfaceCrud<pessoaModel> {
 
     async find(cpf: string): Promise<pessoaModel> {
         const result = await query(
-            "SELECT nome, cpf, tipo_pessoa, email, tipo_cadastro FROM users WHERE cpf=$1", 
+            "SELECT id, nome, cpf, tipo_pessoa, email, tipo_cadastro FROM users WHERE cpf=$1", 
             [cpf]
         );
         return result.length ? result[0] : null;

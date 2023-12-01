@@ -6,6 +6,7 @@ import {ModalidadeController} from "./controllers/ModalidadeController";
 import {PlanoController} from "./controllers/PlanoController";
 import {HrAulaController} from "./controllers/HrAulaController";
 import {MatriculaController} from "./controllers/MatriculaController";
+import {PagamentoController} from "./controllers/PagamentoController";
 
 export const router = express.Router();
 
@@ -37,7 +38,12 @@ router.delete("/aulas/:id", new HrAulaController().deleteHrAula);
 //Matrícula
 router.get("/matriculas", new MatriculaController().AllMatriculas);
 router.post("/matriculas", new MatriculaController().createMatriculas);
-// router.put("/matriculas/:id", new MatriculaController() );
+router.get("/matriculas/:id", new MatriculaController().matriculaId);
+router.put("/matriculas/:id", new MatriculaController().updateMatricula);
 // router.delete("/matriculas/:id", new MatriculaController() );
 
 //Pagamentos
+router.get("/pagamentos", new PagamentoController().AllPagamentos);
+router.post("/pagamentos", new PagamentoController().createPagamentos);
+router.get("/adimplencia/:id", new PagamentoController().adimplencia );
+// router.put("/matriculas/:id", new );

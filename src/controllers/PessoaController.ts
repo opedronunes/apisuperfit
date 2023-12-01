@@ -24,23 +24,24 @@ export class PessoaController {
             const { nome, email, cpf, password, tipo_pessoa, tipo_cadastro } = req.body;
             const userExists = await pessoaService.findUserEmail(email);
             if (userExists) {
-                throw new Error("Usuário já existe");
+                res.status(404).json({message: "Usuário existente!"});
+            }else{
+                const hashPassword = await bcrypt.hash(password, 10);
+    
+                const user = await pessoaService.create({
+                    nome,
+                    email,
+                    cpf,
+                    password: hashPassword,
+                    tipo_pessoa,
+                    tipo_cadastro,
+                });
+    
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                const { password: _, ...newUser } = user;
+    
+                res.status(201).json(newUser);
             }
-            const hashPassword = await bcrypt.hash(password, 10);
-
-            const user = await pessoaService.create({
-                nome,
-                email,
-                cpf,
-                password: hashPassword,
-                tipo_pessoa,
-                tipo_cadastro,
-            });
-
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            const { password: _, ...newUser } = user;
-
-            res.status(201).json(newUser);
         } catch (error) {
             res.status(500).json({
                 error,
