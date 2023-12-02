@@ -41,7 +41,7 @@ export interface InterfaceCrudPagamento<DTO>{
     getAllPagamentos(): Promise<DTO[]>;
     createPagamento(payload: DTO): Promise<DTO>;
     verificaMatricula(matricula_id: string): Promise<DTO>;
-    relatorio(dataInicial: string, dataFinal: string): Promise<DTO>;
+    relatorio(dataInicial: string, dataFinal: string): Promise<DTO[]>;
     // pagamentoId(id: string): Promise<DTO>;
     // updatePagamento(id: string, payload: DTO): Promise<DTO>;
     // deleteMatricula(id: string): Promise<DTO>;

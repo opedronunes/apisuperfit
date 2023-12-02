@@ -46,4 +46,4 @@ router.put("/matriculas/:id", new MatriculaController().updateMatricula);
 router.get("/pagamentos", new PagamentoController().AllPagamentos);
 router.post("/pagamentos", new PagamentoController().createPagamentos);
 router.get("/adimplencia/:id", new PagamentoController().adimplencia );
-// router.put("/matriculas/:id", new );
+router.get("/relatorio", new PagamentoController().relatorio);

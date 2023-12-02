@@ -66,4 +66,15 @@ export class PagamentoController {
             res.status(500).json({ message: "Erro ao verificar adimplência." });
         }
     }
+    async relatorio(req: Request, res: Response){
+        try {
+            const {dataInicial, dataFinal} = req.query as {dataInicial?: string, dataFinal?: string};
+            const relatorio = await pagamentoService.relatorio(dataInicial, dataFinal);
+            res.status(200).json(relatorio);
+            
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: "Erro ao verificar buscar o Filtro" });
+        }
+    }
 }
