@@ -50,9 +50,7 @@ export class PagamentoController {
                 // Data do Pagamento (Mês e Ano)
                 const dataPagamento = new Date(pagamento.data);
                 const mesPagamento = dataPagamento.getMonth() + 1;
-                console.log(mesPagamento);
                 const anoPagamento = dataPagamento.getFullYear();
-                console.log(anoPagamento);
 
                 if (mesAtual === mesPagamento && anoAtual === anoPagamento) {
                     //Se Usuário estiver matriculado e Pago o valor no mês atual libera o acesso.

@@ -40,7 +40,3 @@ export class LoginController {
         });
     }
 }
-// async getProfile(req: Request) {
-//     const { authorization } = req.headers;
-//     console.log(authorization);
-// }

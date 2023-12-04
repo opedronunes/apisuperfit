@@ -15,7 +15,6 @@ export class MatriculaController {
             const {aluno_id, plano_id, dia_vencimento, valor_mensalidade, data_inicio, data_fim} = req.body;
             const matriculaExists = await matriculaService.getAlunoId(aluno_id);
             if (matriculaExists) {
-                //throw new Error("Matrícula existente");
                 res.status(404).json({message: "Matrícula já existe com esse aluno!"});
             }else{
                 const matricula = await matriculaService.createMatricula({
